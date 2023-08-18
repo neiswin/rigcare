@@ -1,26 +1,58 @@
-<h2>Log in</h2>
+<% provide :page_title, "Вход в аккаунт" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<h1 class="text-center">Вход в аккаунт</h1>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="row">
+    <div class="col-3 col-sm-2">
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="col-12 col-sm-8">
+      <p class="  text-center">
+        Для входа на сайт введите свой email и пароль
+      </p>
+
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.email_field :email, placeholder: "email", autocomplete: "email", class:'form-control shadow-sm'  %>
+            <%= f.label :email, 'Ваш e-mail' %>
+          </div>
+          <p class="form-text text-muted">
+            Пример: (example@gmail.com)
+          </p>
+        </div>
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.password_field :password, placeholder: "Пароль", autocomplete: "password", class:'form-control shadow-sm'  %>
+            <%= f.label :password, 'Пароль' %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="mb-3 ">
+            <%= f.check_box :remember_me, class: "form-check-input" %>
+            <%= f.label :remember_me, 'Запомнить меня', class: "form-check-label" %>
+          </div>
+        <% end %>
+
+        <div class="w-100">
+          <%= f.submit "Войти", class: "btn btn-lg btn-primary", data: { turbo:false }%>
+        </div>
+      <% end %>
+        
+        <div class="mt-2">
+          <%= render "devise/shared/links" %>
+        </div>
+  
   </div>
-<% end %>
+  
+  <div class="col-3 col-sm-2">
+  </div>
+</div>
 
-<%= render "devise/shared/links" %>

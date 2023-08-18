@@ -15,8 +15,14 @@
 
     <div class="container-md"> 
       <%= render 'shared/menu' %>
+
+      <% flash.each do |key , value| %>
+        <%= tag.div value, class: "alert alert-success #{key} my-3", role: 'alert' %>
+      <% end %>
       
       <%= yield %>
+
+      <%= render 'shared/footer' %>  
     </div>
 
   </body>

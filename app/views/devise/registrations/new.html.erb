@@ -1,29 +1,89 @@
-<h2>Sign up</h2>
+<% provide :page_title, "Регистрация" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<h1 class="display-5 text-center mb-4">Регистрация</h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="row">
+
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+
+      <p class="  text-center">
+        Для регистрации на сайте укажите свои данные в поля ниже.
+      </p>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="mb-3 ">
+          <div class="form-floating">
+            <%= f.text_field :first_name, placeholder: "Имя", autofocus: true, autocomplete: "first_name", class:'form-control shadow-sm'  %>
+            <%= f.label :first_name, 'Ваше имя', placeholder: "Имя" %>
+          </div>
+        </div>
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.text_field :last_name, placeholder: "Фамилия", autocomplete: "last_name", class:'form-control shadow-sm'  %>
+            <%= f.label :last_name, 'Ваша фамилия' %>
+          </div>
+        </div>
+       
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.telephone_field :phone, placeholder: "Оставьте свой номер телефона", class:'form-control shadow-sm'  %>
+            <%= f.label :phone, 'Номер телефона' %>
+          </div>
+          <p class="form-text text-muted">
+            Ваш номер телефона будет использоваться для входа на сайт (введите в формате 375 44 123 45 67)
+          </p>
+        </div>
+
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.email_field :email, placeholder: "email", autocomplete: "email", class:'form-control shadow-sm'  %>
+            <%= f.label :email, 'Ваш email' %>
+          </div>
+          <p class="form-text text-muted">
+            Укажите свой существуйщий email, который будет использоваться для входа на сайт. (Пример: example@gmail.com)
+          </p>
+        </div>
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.password_field :password, placeholder: "Пароль", autocomplete: "password", class:'form-control shadow-sm'  %>
+            <%= f.label :password, 'Пароль' %>
+          </div>
+          <% if @minimum_password_length %>
+            <p class="form-text text-muted">
+              Придумайте пароль (<%= @minimum_password_length %> символов минимум)
+            </p>
+          <% end %>
+        </div>
+
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.password_field :password_confirmation, placeholder: "password", autocomplete: "password", class:'form-control shadow-sm'  %>
+            <%= f.label :password_confirmation, 'Повторите пароль' %>
+          </div>
+        </div>
+
+        <div class="mb-3 ">
+          <%= f.submit "Зарегистрироваться", class: "btn btn-primary", data: { turbo:false }%>
+        </div>
+      <% end %>
+
+      <div>
+        <p class="  mb-5">
+            Если у Вас уже есть аккаунт то войдите перейдя по ссылке: <%= render "devise/shared/links" %>
+        </p>
+      </div>
+
+  </div>
+  
+  <div class="col-3 col-sm-2">
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
