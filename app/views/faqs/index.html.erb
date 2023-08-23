@@ -1,0 +1,29 @@
+<h1>Faq#index</h1>
+<p>Find me in app/views/faq/index.html.erb</p>
+
+
+<%= link_to "Добавить новый F.A.Q", new_faq_path, class: "btn btn-success"  %>  
+
+
+<table class="table table-sm table-hover table-borderless table-light align-middle my-3">
+  <thead class="table-light">
+    <caption>FAQs</caption>
+    <tr class="table-dark text-light">
+      <th>Список всех вопросов/ответов</th>
+    </tr>
+  </thead>
+
+  <tbody class="table-group-divider">
+
+<% @faqs.each do |item| %>
+    <tr class="table-light" >
+  
+      <td scope="row"><%= link_to "#{item.title}", faq_path(item) %></td>
+    </tr>
+<% end %>
+
+  </tbody>
+
+</table>
+
+

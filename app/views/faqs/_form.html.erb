@@ -1,0 +1,25 @@
+
+<%# <%= render 'shared/errors', object: @faq %>   
+
+<%= form_with model: @faq do |f| %>
+    
+    <div class="mb-2">     
+      <div class="form-floating ">
+        <%= f.text_field :title, placeholder: "Заголовок", class:'form-control'  %>
+        <%= f.label :title, 'Название вопроса' %>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="form-floating ">
+        <%= f.text_field :body, placeholder: "Описание проблемы", class:'form-control'  %>
+        <%= f.label :body, 'Описание проблемы' %>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
+    </div>
+
+<% end %>
+  
