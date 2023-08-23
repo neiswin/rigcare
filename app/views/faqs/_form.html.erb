@@ -10,11 +10,8 @@
       </div>
     </div>
 
-    <div class="mb-2">
-      <div class="form-floating ">
-        <%= f.text_field :body, placeholder: "Описание проблемы", class:'form-control'  %>
-        <%= f.label :body, 'Описание проблемы' %>
-      </div>
+    <div class="mb-2 text-start">
+        <%= f.rich_text_area :body, placeholder: "Описание проблемы", class: "form-control" %>
     </div>
 
     <div class="mb-2">

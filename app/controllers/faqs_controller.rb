@@ -10,7 +10,6 @@ class FaqsController < ApplicationController
   end
 
   def create
-        
     if user_signed_in?
       @faq = current_user.faqs.build faq_params
     else

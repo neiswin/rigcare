@@ -1,12 +1,12 @@
 
 
-<h1 class="text-center display-4">Книга <%= @faq.title %></h1>
+<h1 class="text-center display-4"><%= @faq.title %></h1>
   
   <div class="card">
   
     <div class="card-body">
-      <h5 class="card-title">Название книги: <%= @faq.title %></h5>
-      <p class="card-text">Описание: <%= sanitize @faq.body %></p>
+      <h5 class="card-title">Вопрос: <%= @faq.title %></h5>
+      <p class="card-text">Описание: <%= @faq.body %></p>
     </div>
 
     <div class="card-footer text-muted">
