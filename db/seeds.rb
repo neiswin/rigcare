@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+Rig.create rig_type: "АРС-250"
+Rig.create rig_type: "Drillmec наземный"
+Rig.create rig_type: "Drillmec эшелон"

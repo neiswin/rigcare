@@ -1,5 +1,6 @@
 class Faq < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :rig, optional: true
   has_rich_text :body
 
 

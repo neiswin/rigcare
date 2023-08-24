@@ -1,5 +1,6 @@
 class FaqsController < ApplicationController
   before_action :set_book!, only: %i[destroy edit show update]
+  before_action :fetch_rigs, only: %i[create edit new]
 
   def index
     @faqs = Faq.all
@@ -32,9 +33,18 @@ class FaqsController < ApplicationController
   end
 
   def update
+    if @faq.update faq_params
+      flash[:success] = 'FAQ update!'
+      redirect_to faqs_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @faq.destroy
+    flash[:success] = 'FAQ deleted!'
+    redirect_to faqs_path
   end
 
   private
@@ -44,7 +54,11 @@ class FaqsController < ApplicationController
     @faq = Faq.find params[:id]
   end
 
+  def fetch_rigs
+    @rigs = Rig.order(:name).map { |rig| [rig.rig_type, rig.id] }
+  end
+
   def faq_params
-    params.require(:faq).permit(:title, :body)
+    params.require(:faq).permit(:title, :body, :rig_id)
   end
 end

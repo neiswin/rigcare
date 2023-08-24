@@ -10,6 +10,17 @@
       </div>
     </div>
 
+    <div class="mb-2">
+      <div class="form-floating ">
+        <%= f.select :rig_id, rigs, { label: "Выбери тип буровой установки",
+          wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+        <%= f.label :rig_id, 'Буровая' %>
+      </div>  
+      <p class="form-text text-muted">
+        Выбери тип буровой установки для созданий руководства
+      </p>        
+    </div>
+
     <div class="mb-2 text-start">
         <%= f.rich_text_area :body, placeholder: "Описание проблемы", class: "form-control" %>
     </div>
