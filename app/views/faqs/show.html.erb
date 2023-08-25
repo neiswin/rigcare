@@ -13,7 +13,7 @@
     <div class="card-footer text-muted">
       <div class="row justify-content-center align-items-center g-2">
         <div class="col"><p class="card-text">Добавлена: <%= @faq.created_at %></p></div>
-        <div class="col"><p class="card-text">Автор: <%= @faq.user.first_name %> <%= @faq.user.last_name  %> </p></div>
+        <div class="col"><p class="card-text">Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %>  </p></div>
         <div class="col text-end">
           <div class="btn-group" role="group" aria-label="Basic example">
 
