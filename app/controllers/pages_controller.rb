@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @users = User.all
   end
 end

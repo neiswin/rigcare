@@ -1,2 +1,23 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<div class="table-responsive-sm my-3">
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">Имя и фамилия</th>
+        <th scope="col">Участок</th>
+        <th scope="col">Должность</th>
+        <th scope="col">Номер телефона</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td scope="row"><%= user.first_name %> <%= user.last_name %></td>
+        <td>depart</td>
+        <td>position</td>
+        <td> +<%= user.phone %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
