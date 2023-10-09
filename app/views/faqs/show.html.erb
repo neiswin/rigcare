@@ -16,11 +16,13 @@
         <div class="col"><p class="card-text">Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %>  </p></div>
         <div class="col text-end">
           <div class="btn-group" role="group" aria-label="Basic example">
+              <% if user_signed_in? %>
+                  <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
+              <% end %>
 
-              <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %>
-
-              <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
-
+            
+                  <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
+           
           </div>
         </div>
       </div>
