@@ -7,6 +7,13 @@
     <div class="card-body">
       <h5 class="card-title">Вопрос: <%= @faq.title %></h5>
       <p class="card-text">Тип буровой установки: <%= @faq.rig.rig_type %></p>
+      <p>Теги:
+        <% @faq.tags.each do |item| %>
+          <p class="badge rounded-pill bg-primary text-light d-inline-block px-2 pt-1 pb-2 me-1">
+            <%= item.title %>
+          </p>
+        <% end %>
+      </p>
       <p class="card-text">Описание: <%= @faq.body %></p>
     </div>
 

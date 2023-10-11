@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index show]
+
+  get 'tags/search', to: 'tags#search'
   
   root "pages#index"
   get 'pages/contact'

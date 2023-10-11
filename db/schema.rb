@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_24_122843) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_112127) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_122843) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "faq_tags", force: :cascade do |t|
+    t.integer "faq_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["faq_id", "tag_id"], name: "index_faq_tags_on_faq_id_and_tag_id", unique: true
+    t.index ["faq_id"], name: "index_faq_tags_on_faq_id"
+    t.index ["tag_id"], name: "index_faq_tags_on_tag_id"
+  end
+
   create_table "faqs", force: :cascade do |t|
     t.string "title"
     t.string "body"
@@ -62,6 +72,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_122843) do
 
   create_table "rigs", force: :cascade do |t|
     t.string "rig_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_122843) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "faq_tags", "faqs"
+  add_foreign_key "faq_tags", "tags"
   add_foreign_key "faqs", "rigs"
   add_foreign_key "faqs", "users"
 end

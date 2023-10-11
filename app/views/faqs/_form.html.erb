@@ -21,6 +21,20 @@
       </p>        
     </div>
 
+
+<div class="mb-2">
+  <div class="form-floating">
+    <%= f.text_field :tag_ids_input, placeholder: "Заголовок", class: 'form-control', id: 'select-state' %>
+  </div>
+  <p class="form-text text-muted">
+    Выберите темы для описания проблемы
+  </p>
+</div>
+
+
+
+
+
     <div class="mb-2 text-start">
         <%= f.rich_text_area :body, placeholder: "Описание проблемы", class: "form-control" %>
     </div>

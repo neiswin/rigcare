@@ -1,6 +1,7 @@
 class FaqsController < ApplicationController
   before_action :set_book!, only: %i[destroy edit show update]
   before_action :fetch_rigs, only: %i[create edit new]
+  before_action :fetch_tags, only: %i[create edit new]
 
   def index
     @faqs = Faq.all
@@ -58,7 +59,12 @@ class FaqsController < ApplicationController
     @rigs = Rig.order(:name).map { |rig| [rig.rig_type, rig.id] }
   end
 
-  def faq_params
-    params.require(:faq).permit(:title, :body, :rig_id)
+  def fetch_tags
+    @tags = Tag.all
   end
+
+  def faq_params
+    params.require(:faq).permit(:title, :body, :rig_id, tag_ids_input: [])
+  end
+  
 end

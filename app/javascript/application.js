@@ -4,3 +4,9 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "trix"
 import "@rails/actiontext"
+
+
+require("utilities/tom_select")
+
+
+ 
