@@ -10,6 +10,8 @@ module RigcareBn
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    # config.action_view.turbo_stream = false
+    # config.action_view.turbo_frame = false
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -25,7 +25,8 @@
 <div class="mb-2">
   <div>
     <%# <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true } %> 
-    <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true, id: "tag_ids" } %>
+    <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true, id: "tag_ids", data: { controller: 'slim' } } %>
+
 
   </div>
   <p class="form-text text-muted">
@@ -42,7 +43,7 @@
     </div>
 
     <div class="mb-2">
-      <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
+      <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
     </div>
 
 <% end %>
