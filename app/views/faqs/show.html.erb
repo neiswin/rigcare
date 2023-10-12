@@ -1,37 +1,77 @@
 
-
-<h1 class="text-center display-4"><%= @faq.title %></h1>
-  
-  <div class="card">
-  
-    <div class="card-body">
-      <h5 class="card-title">Вопрос: <%= @faq.title %></h5>
-      <p class="card-text">Тип буровой установки: <%= @faq.rig.rig_type %></p>
-      <p>Теги:
-        <% @faq.tags.each do |item| %>
-          <p class="badge rounded-pill bg-primary text-light d-inline-block px-2 pt-1 pb-2 me-1">
-            <%= item.title %>
-          </p>
-        <% end %>
-      </p>
-      <p class="card-text">Описание: <%= @faq.body %></p>
-    </div>
-
-    <div class="card-footer text-muted">
-      <div class="row justify-content-center align-items-center g-2">
-        <div class="col"><p class="card-text">Добавлена: <%= @faq.created_at %></p></div>
-        <div class="col"><p class="card-text">Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %>  </p></div>
-        <div class="col text-end">
-          <div class="btn-group" role="group" aria-label="Basic example">
-              <% if user_signed_in? %>
-                  <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
-              <% end %>
-
-            
-                  <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
-           
-          </div>
-        </div>
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8">
+          <!-- Post content-->
+          <article>
+              <!-- Post header-->
+              <header class="mb-2">
+                  <!-- Post title-->
+                  <h1 class="fw-bolder mb-1"><%= @faq.title %></h1>
+                  <!-- Post meta content-->
+                  <div class="text-muted fst-italic mb-1">Добавлен: <%= @faq.created_at %>, Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %></div>
+                  <div class="text-muted fst-italic mb-2"><%= @faq.rig.rig_type %></div>
+                  <!-- Post categories-->
+                  <% @faq.tags.each do |item| %>
+                    <p class="badge rounded-pill text-bg-primary">
+                      <%= item.title %>
+                    </p>
+                  <% end %>          
+              </header>
+              <!-- Post content-->
+              <section class="mb-5">
+                <%= @faq.body %>
+                <div class="card-footer text-muted">
+                  <div class="row justify-content-center align-items-center g-2">
+                    <div class="col text-end">
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                          <% if user_signed_in? %>
+                              <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
+                          <% end %>
+                              <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          </article>
       </div>
-    </div>
+      <!-- Side widgets-->
+      <div class="col-lg-4">
+          <!-- Search widget-->
+          <div class="card mb-4">
+              <div class="card-header">Search</div>
+              <div class="card-body">
+                  <div class="input-group">
+                      <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                      <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                  </div>
+              </div>
+          </div>
+          <!-- Categories widget-->
+          <div class="card mb-4">
+              <div class="card-header">Categories</div>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <ul class="list-unstyled mb-0">
+                              <li><a href="#!">Web Design</a></li>
+                              <li><a href="#!">HTML</a></li>
+                              <li><a href="#!">Freebies</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6">
+                          <ul class="list-unstyled mb-0">
+                              <li><a href="#!">JavaScript</a></li>
+                              <li><a href="#!">CSS</a></li>
+                              <li><a href="#!">Tutorials</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
   </div>
+</div>
