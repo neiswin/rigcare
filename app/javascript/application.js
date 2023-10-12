@@ -6,7 +6,7 @@ import "trix"
 import "@rails/actiontext"
 
 
-require("utilities/tom_select")
+
 
 
  

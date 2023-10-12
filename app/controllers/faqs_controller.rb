@@ -64,7 +64,7 @@ class FaqsController < ApplicationController
   end
 
   def faq_params
-    params.require(:faq).permit(:title, :body, :rig_id, tag_ids_input: [])
+    params.require(:faq).permit(:title, :body, :rig_id, tag_ids: [])
   end
   
 end

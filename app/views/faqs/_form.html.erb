@@ -23,8 +23,9 @@
 
 
 <div class="mb-2">
-  <div class="form-floating">
-    <%= f.text_field :tag_ids_input, placeholder: "Заголовок", class: 'form-control', id: 'select-state' %>
+  <div class="field">
+    <%= f.label :tag_ids, 'Выберите теги:' %>
+    <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true } %>
   </div>
   <p class="form-text text-muted">
     Выберите темы для описания проблемы
