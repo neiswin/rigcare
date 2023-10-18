@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="shortcut icon" type="image/png" href="<%= asset_path('b-logo.png') %>" />
     <title>Rigcare-Белоруснефть</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -14,19 +15,14 @@
   </head>
 
   <body>
-
-
     <div class="container-md"> 
       <%= render 'shared/menu' %>
-
       <% flash.each do |key , value| %>
         <%= tag.div value, class: "alert alert-success #{key} my-3", role: 'alert' %>
-      <% end %>
-      
+      <% end %>     
       <%= yield %>
-
-      <%= render 'shared/footer' %>  
     </div>
+      <%= render 'shared/footer' %>  
 
   </body>
 </html>
