@@ -1,0 +1,7 @@
+<% @faqs.each do |faq| %>
+  <%= render partial: 'faqs/partial/faq', locals: { faq: faq } %>
+
+  <p class="lead">
+      <%= link_to "Show this FAQ", faq %>
+  </p>
+<% end %>

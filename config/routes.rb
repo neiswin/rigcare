@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
  
-  resources :faqs
+  resources :faqs do
+    collection do
+      post :search
+    end
+  end
   devise_for :users
 
   namespace :admin do
@@ -14,6 +18,13 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show]
 
   get 'tags/search', to: 'tags#search'
+
+  post 'search', to: 'search#index', as: 'search'
+  
+  post 'search/suggestions', to: 'search#suggestions', as: 'search_suggestions'
+
+
+
   
   root "pages#index"
   get 'pages/contact'

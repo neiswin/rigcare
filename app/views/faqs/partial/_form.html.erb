@@ -6,7 +6,7 @@
     <div class="mb-2">     
       <div class="form-floating ">
         <%= f.text_field :title, placeholder: "Заголовок", class:'form-control'  %>
-        <%= f.label :title, 'Название вопроса' %>
+        <%= f.label :title, 'Заголовок руководства' %>
       </div>
     </div>
 
@@ -38,11 +38,11 @@
 
 
 
-    <div class="mb-2 text-start sticky-top">
+    <div class="mb-5 text-start sticky-top">
         <%= f.rich_text_area :body, placeholder: "Описание проблемы", class: "form-control" %>
     </div>
 
-    <div class="mb-2">
+    <div class="mb-2 ">
       <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
     </div>
 

@@ -1,0 +1,4 @@
+<% faqs.each do |faq| %>
+  <br>
+  <%= link_to(raw(highlight(faq.title, params[:title_search])), faq) %>
+<% end %>

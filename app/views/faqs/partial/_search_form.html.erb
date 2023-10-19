@@ -1,0 +1,5 @@
+<%= form_with url: search_faqs_path, method: :post do |form|%>
+  <%= form.search_field :title_search, oninput: "this.form.requestSubmit()", placeholder: "Поиск по названию", class: "form form-control" %>
+<% end %>
+
+<div id="search_result"></div>

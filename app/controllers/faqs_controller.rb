@@ -30,6 +30,21 @@ class FaqsController < ApplicationController
     
   end
 
+  def search
+    if params[:title_search].present?
+      search_query = params[:title_search]
+      @faqs = Faq.filter_by_title(search_query)
+    else
+      @faqs = []
+    end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("search_result",
+                                          partial: "faqs/partial/search_result", locals: {faqs: @faqs})
+      end
+    end
+  end
+
   def edit
   end
 
