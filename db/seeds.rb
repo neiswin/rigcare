@@ -32,19 +32,19 @@
 #   Tag.create title: item
 # end
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.unique.email,
-#     password: 112131, # Установите желаемый пароль
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     department: Faker::Company.profession,
-#     position: Faker::Job.title,
-#     phone: Faker::PhoneNumber.phone_number,
-#     role: 0 # Установите желаемую роль
-#   )
-#   user.save
-# end
+10.times do
+  user = User.new(
+    email: Faker::Internet.unique.email,
+    password: 112131, # Установите желаемый пароль
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    department: rand(1..3),
+    position: rand(1..5),
+    phone: Faker::PhoneNumber.phone_number,
+    role: 0 # Установите желаемую роль
+  )
+  user.save
+end
 
 Faq.destroy_all
 20.times do

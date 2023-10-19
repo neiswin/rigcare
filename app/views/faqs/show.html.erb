@@ -35,17 +35,14 @@
       <!-- Side widgets-->
       <div class="col-lg-4">
           <!-- Search widget-->
-          <div class="card shadow border border-1 rounded-0 mb-4">
-              <div class="card-header border border-0">Search</div>
+          <div class="card shadow border border-1 rounded-2 mb-4">
+              <div class="card-header border border-0">Поиск</div>
               <div class="card-body">
-                  <div class="input-group">
-                      <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                      <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                  </div>
+                <%= render "faqs/partial/search_form" %>
               </div>
           </div>
           <!-- Categories widget-->
-          <div class="card shadow rounded-0 border border-1 mb-4">
+          <div class="card shadow rounded-2 border border-1 mb-4">
               <div class="card-header border border-light">Категории</div>
               <div class="card-body">
                   <div class="row">

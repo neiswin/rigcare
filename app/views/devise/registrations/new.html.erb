@@ -29,17 +29,29 @@
             <%= f.label :last_name, 'Ваша фамилия' %>
           </div>
         </div>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.select :department, [["СКУ", 1], ["КТОиСА", 2], ["Электроцех №3", 3]], { label: "Выберите подразделение:",
+            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+            <%= f.label :department, 'Подразделение' %>
+          </div>     
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.select :position, [["Инженер", 1], ["Мастер", 2], ["Слесарь КИПиА", 3], ["Электромонтер", 4], ["Руководство", 5] ], { label: "Выберите должность:",
+            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+            <%= f.label :position, 'Должность' %>
+          </div>     
+        </div>
        
         <div class="mb-3 ">
           <div class="form-floating  ">
             <%= f.telephone_field :phone, placeholder: "Оставьте свой номер телефона", class:'form-control shadow-sm'  %>
             <%= f.label :phone, 'Номер телефона' %>
           </div>
-          <p class="form-text text-muted">
-            Ваш номер телефона будет использоваться для входа на сайт (введите в формате 375 44 123 45 67)
-          </p>
         </div>
-
 
         <div class="mb-3 ">
           <div class="form-floating  ">

@@ -1,8 +1,14 @@
 class PagesController < ApplicationController
+  def contact
+    @users = User.all
+  end
+
+
   def index
   end
 
-  def contact
-    @users = User.all
+
+  def test
+    
   end
 end

@@ -1,7 +1,7 @@
 class Faq < ApplicationRecord
   # searchkick text_middle: [:title, :body]
 
-  scope :filter_by_title, -> (title) {where('title LIKE ?', "%#{title}%")}
+  scope :filter_by_title, -> (title) {where('title ILIKE ?', "%#{title}%")}
 
   belongs_to :user, optional: true
   belongs_to :rig, optional: true

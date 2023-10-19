@@ -71,7 +71,7 @@ class FaqsController < ApplicationController
   end
 
   def fetch_rigs
-    @rigs = Rig.order(:name).map { |rig| [rig.rig_type, rig.id] }
+    @rigs = Rig.order(:rig_type).map { |rig| [rig.rig_type, rig.id] }
   end
 
   def fetch_tags

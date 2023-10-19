@@ -15,5 +15,7 @@ class User < ApplicationRecord
   validates :phone, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :department, presence: true
+  validates :position, presence: true
   devise :database_authenticatable, :authentication_keys => [:email]
 end
