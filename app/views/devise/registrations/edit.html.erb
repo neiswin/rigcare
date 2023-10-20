@@ -8,7 +8,7 @@
 
     <div class="col-12 col-sm-8">
 
-      <p class="  text-center">
+      <p class="text-center">
         Внесите изменения при необходимости. Для подтверждения изменений в последнее поле введи свой текущий пароль.
       </p>
 
@@ -52,11 +52,7 @@
             <%= f.telephone_field :phone, placeholder: "Оставьте свой номер телефона", class:'form-control shadow-sm'  %>
             <%= f.label :phone, 'Номер телефона' %>
           </div>
-          <p class="form-text text-muted">
-            Ваш номер телефона будет использоваться для входа на сайт (введите в формате 375 44 123 45 67)
-          </p>
         </div>
-
 
         <div class="mb-3 ">
           <div class="form-floating  ">
@@ -71,8 +67,7 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-        <div class="mb-3 ">
-     
+        <div class="mb-3 "> 
           <p class="form-text text-muted">
             Для сохранения изменений введите здесь свой текущий пароль
           </p>
@@ -80,7 +75,6 @@
             <%= f.password_field :current_password, placeholder: "password", autocomplete: "current-password", class:'form-control shadow-sm'  %>
             <%= f.label :current_password, 'Текущий пароль' %>
           </div>
-
           <hr>
         </div>
 
@@ -104,23 +98,19 @@
           </div>
         </div>
 
-
-
-
         <div class="mb-3">
           <%= f.submit "Сохранить" , class: "btn btn-primary", data: { turbo:false } %>
         </div>
       <% end %>
 
-      <div class="mb-3 text-end">
+      <div class="mb-3">
         <p class="form-text">
             <%= link_to "Назад", :back %>
         </p>
       </div>
 
     </div>
-
-
+    
     <div class="col-3 col-sm-2">
     </div>
 

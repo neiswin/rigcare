@@ -12,8 +12,8 @@
       <% @users.each do |user| %>
       <tr>
         <td scope="row"><%= user.first_name %> <%= user.last_name %></td>
-        <td><%= user.department %></td>
-        <td><%= user.position %></td>
+        <td><%= user.department_text %></td>
+        <td><%= user.position_text %></td>
         <td> +<%= user.phone %></td>
       </tr>
       <% end %>

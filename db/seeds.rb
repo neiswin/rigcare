@@ -46,7 +46,7 @@
   user.save
 end
 
-Faq.destroy_all
+
 20.times do
   faq = Faq.new(
     title: Faker::Lorem.sentence,

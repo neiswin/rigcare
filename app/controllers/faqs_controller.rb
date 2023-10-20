@@ -1,5 +1,5 @@
 class FaqsController < ApplicationController
-  before_action :set_book!, only: %i[destroy edit show update]
+  before_action :set_faq!, only: %i[destroy edit show update]
   before_action :fetch_rigs, only: %i[create edit new]
   before_action :fetch_tags, only: %i[create edit new]
 
@@ -66,8 +66,8 @@ class FaqsController < ApplicationController
   private
   
 
-  def set_book!
-    @faq = Faq.find params[:id]
+  def set_faq!
+    @faq = Faq.find(params[:id]).decorate
   end
 
   def fetch_rigs

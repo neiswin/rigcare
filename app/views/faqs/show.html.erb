@@ -9,8 +9,17 @@
                   <!-- Post title-->
                   <h1 class="fw-bolder mb-1"><%= @faq.title %></h1>
                   <!-- Post meta content-->
-                  <div class="text-muted fst-italic mb-1">Добавлен: <%= @faq.created_at %>, Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %></div>
-                  <div class="text-muted fst-italic mb-2"><%= @faq.rig.rig_type %></div>
+                  <div class="text-muted fst-italic mb-1">Добавлено: <%= @faq.created_at %>, Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %></div>
+                  <div>
+                    <h4><span class="badge bg-info"><%= @faq.rig.rig_type %></span></h4>
+                  </div>
+                    <ul class="list-unstyled mb-0">
+                        <% @faq.tags.each do |item| %>
+                            <li class="badge rounded-pill text-bg-primary">
+                                <%= item.title %>
+                            </li>
+                        <% end %> 
+                    </ul>
                   <!-- Post categories-->         
               </header>
               <!-- Post content-->
@@ -22,8 +31,8 @@
                       <div class="btn-group" role="group" aria-label="Basic example">
                           <% if user_signed_in? %>
                               <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
-                          <% end %>
                               <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
+                          <% end %>
                       
                       </div>
                     </div>
@@ -50,7 +59,7 @@
                           <ul class="list-unstyled mb-0">
                                 <% @faq.tags.each do |item| %>
                                     <li class="badge rounded-pill text-bg-primary">
-                                    <%= item.title %>
+                                        <%= item.title %>
                                     </li>
                                 <% end %> 
                           </ul>
