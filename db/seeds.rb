@@ -10,6 +10,7 @@
 # Rig.create rig_type: "АРС-250"
 # Rig.create rig_type: "Drillmec наземный"
 # Rig.create rig_type: "Drillmec эшелон"
+Rig.create rig_type: "Общие"
 
 
 

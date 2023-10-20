@@ -1,6 +1,7 @@
 
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :require_admin
   before_action :set_user!, only: %i[destroy edit update]
   # before_action :authorize_user!
   # after_action :verify_authorized
@@ -44,6 +45,13 @@ class Admin::UsersController < ApplicationController
 
   def authorize_user!
     authorize_user!(@user || User) 
+  end
+
+  def require_admin
+    unless current_user&.admin_role?
+      flash[:alert] = 'Доступ запрещен. Эта страница доступна только администраторам.'
+      redirect_to root_path
+    end
   end
 end
 

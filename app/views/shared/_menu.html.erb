@@ -15,19 +15,24 @@
         <li class="nav-item">
            <%= link_to 'Руководства', faqs_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
-        <li class="nav-item">
-           <%= link_to 'All users', admin_users_path, class: 'nav-link px-2 link-body-emphasis' %>
-        </li>
+
+
         <li class="nav-item">
            <%= link_to 'Контакты', pages_contact_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
 
-    <%# <% end %>
+        <% if current_user&.admin_role? %>
+        <li class="nav-item">
+           <%= link_to 'Все пользователи', admin_users_path, class: 'nav-link px-2 link-body-emphasis' %>
+        </li>
+        <% end %>
+
+
       </ul>
 
        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
         <% if user_signed_in? %>
-          <div class="dropdown-center ">
+          <div class="dropdown-center px-3">
           <%= link_to '#',
           class: 'btn btn-success dropdown-toggle',
           data: {"bs-toggle": 'dropdown'} do %>

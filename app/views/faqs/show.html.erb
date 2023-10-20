@@ -13,13 +13,6 @@
                   <div>
                     <h4><span class="badge bg-info"><%= @faq.rig.rig_type %></span></h4>
                   </div>
-                    <ul class="list-unstyled mb-0">
-                        <% @faq.tags.each do |item| %>
-                            <li class="badge rounded-pill text-bg-primary">
-                                <%= item.title %>
-                            </li>
-                        <% end %> 
-                    </ul>
                   <!-- Post categories-->         
               </header>
               <!-- Post content-->
@@ -29,11 +22,15 @@
                   <div class="row justify-content-center align-items-center g-2">
                     <div class="col text-end">
                       <div class="btn-group" role="group" aria-label="Basic example">
-                          <% if user_signed_in? %>
-                              <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
-                              <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
-                          <% end %>
-                      
+
+                        <% if (@faq.user_id == current_user&.id) || current_user&.moderator_role? || current_user&.admin_role? %>
+                           <%= link_to 'Изменить', edit_faq_path(@faq), method: :get, class: "btn btn-warning" %> 
+                        <% end %>
+
+                        <% if current_user&.admin_role? %>
+                            <%= link_to "Удалить", faq_path(@faq),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>                     
+                        <% end %>
+                        
                       </div>
                     </div>
                   </div>
