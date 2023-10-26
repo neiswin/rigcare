@@ -83,4 +83,6 @@ gem 'devise', '~> 4.9'
 gem 'searchkick'
 gem 'elasticsearch', '~> 7.17'
 gem 'draper'
-
+gem 'rubyzip'
+gem 'caxlsx'
+gem 'caxlsx_rails'

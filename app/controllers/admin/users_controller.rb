@@ -19,7 +19,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    respond_to do |format|
+      format.html do
+        @users = User.all 
+      end
+
+      format.zip do
+        respond_with_zipped_users
+      end
+    end
   end
 
   def update
@@ -37,6 +45,23 @@ class Admin::UsersController < ApplicationController
 
   def set_user!
     @user = User.find params[:id]
+  end
+
+  def respond_with_zipped_users
+    compressed_filestream = Zip::OutputStream.write_buffer do |zos|
+      User.order(created_at: :desc).each do |user|
+        zos.put_next_entry "user_#{user.id}.xlsx"
+        zos.print render_to_string(
+          layout: false, handlers: [:axlsx], formats: [:xlsx],
+          template: 'admin/users/user',
+          locals: {user: user}
+        )
+      end
+    end
+
+    compressed_filestream.rewind
+    send_data compressed_filestream.read, filename: 'users.zip'
+
   end
 
   def user_params
