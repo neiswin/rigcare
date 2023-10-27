@@ -1,0 +1,17 @@
+
+
+<h1 class="fmb-3">Bands</h1>
+
+<%= form_with(url: tests_path, method: :get, data: {controller: "search-form", turbo_frame: "tests", turbo_action: "advance"}) do |form| %>
+  <%= form.label :query, "Search by band name:", class: "block mb-2" %>
+  <div class="mb-3">
+    <%= form.text_field :query, data: {action: "input->search-form#search"} %>
+
+    <%= form.submit 'Search'%>
+  </div>
+<% end %>
+
+<!-- render new partial here -->
+<div class="my-6">
+  <%= render "tests", tests: @tests %>
+</div>

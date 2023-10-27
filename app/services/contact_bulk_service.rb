@@ -21,12 +21,17 @@ private
     sheet = RubyXL::Parser.parse_buffer(entry.get_input_stream.read)[0]
     sheet.map do |row|
       cells = row.cells
-      PhonebookContact.new department: cells[0].value.to_s,
-                            position: cells[1].value.to_s,
-                            first_name: cells[2].value.to_s,
-                            last_name: cells[3].value.to_s,
-                            surname: cells[4].value.to_s,
-                            landline_phone_1: cells[5].value.to_s
+      PhonebookContact.new department: cells[0]&.value.to_s,
+                            position: cells[1]&.value.to_s,
+                            first_name: cells[2]&.value.to_s,
+                            last_name: cells[3]&.value.to_s,
+                            surname: cells[4]&.value.to_s,
+                            landline_phone_1: cells[5]&.value.to_s,
+                            landline_phone_2: cells[6]&.value.to_s,
+                            city_phone: cells[7]&.value.to_s,
+                            work_mobile_phone: cells[8]&.value.to_s,
+                            personal_mobile_phone_1: cells[9]&.value.to_s,
+                            personal_mobile_phone_2: cells[10]&.value.to_s
 
     end
   end

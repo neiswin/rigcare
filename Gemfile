@@ -68,7 +68,7 @@ group :development do
   # gem "spring"
   gem 'faker'
   gem 'letter_opener'
-  gem 'pry-rails'
+  # gem 'pry-rails'
 end
 
 group :test do

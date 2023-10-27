@@ -11,9 +11,14 @@ class PhonebookContactsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @contacts = PhonebookContact.all
+        if params[:query].present?
+          search_query = "%#{params[:query]}%"
+          @contacts = PhonebookContact.where("first_name ILIKE ? OR last_name ILIKE ? OR surname ILIKE ?", search_query, search_query, search_query)
+        else
+          @contacts = PhonebookContact.all
+        end
+        
       end
-
       format.zip do
         respond_with_zipped_contact
       end

@@ -1,24 +1,15 @@
-<main class="form-signin w-100 m-auto">
-  <form>
-   
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+<h1 class="font-bold text-3xl mb-3">Bands</h1>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+<%= form_with(url: test_path, method: :get, data: {controller: "search-form", turbo_frame: "faqs", turbo_action: "advance"}) do |form| %>
+  <%= form.label :query, "Search by band name:", class: "block mb-2" %>
+  <div class="flex space-x-3">
+    <%= form.text_field :query, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none", data: {action: "input->search-form#search"} %>
 
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
-  </form>
-</main>
+    <%= form.submit 'Search', class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
+  </div>
+<% end %>
+
+<!-- render new partial here -->
+<div class="my-6">
+  <%= render "faqs", faqs: @faqs %>
+</div>

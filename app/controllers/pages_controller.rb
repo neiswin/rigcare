@@ -10,6 +10,11 @@ class PagesController < ApplicationController
 
 
   def test
-    
+    if params[:query].present?
+      search_query = "%#{params[:query]}%"
+      @faqs = Faq.where("name LIKE ?", search_query)
+    else
+      @faqs = Faq.all
+    end
   end
 end

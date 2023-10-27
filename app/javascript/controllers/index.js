@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 
+import SearchFormController from "./search_form_controller"
+application.register("search-form", SearchFormController)
+
 import SlimController from "./slim_controller"
 application.register("slim", SlimController)

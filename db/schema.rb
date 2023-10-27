@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_115406) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_121504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_115406) do
     t.string "landline_phone_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "landline_phone_2"
+    t.string "city_phone"
+    t.string "work_mobile_phone"
+    t.string "personal_mobile_phone_1"
+    t.string "personal_mobile_phone_2"
   end
 
   create_table "rigs", force: :cascade do |t|
@@ -92,6 +97,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_115406) do
 
   create_table "tags", force: :cascade do |t|
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
