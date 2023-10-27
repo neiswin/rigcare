@@ -67,7 +67,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'faker'
-  gem "letter_opener"
+  gem 'letter_opener'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -86,3 +87,5 @@ gem 'draper'
 gem 'rubyzip'
 gem 'caxlsx'
 gem 'caxlsx_rails'
+gem 'rubyXL'
+gem 'activerecord-import'

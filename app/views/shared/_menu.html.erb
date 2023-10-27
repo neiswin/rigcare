@@ -21,6 +21,10 @@
            <%= link_to 'Контакты', pages_contact_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
 
+        <li class="nav-item">
+           <%= link_to 'Тел.Справочник', phonebook_contacts_path, class: 'nav-link px-2 link-body-emphasis' %>
+        </li>
+
         <% if current_user&.admin_role? %>
         <li class="nav-item">
            <%= link_to 'Все пользователи', admin_users_path, class: 'nav-link px-2 link-body-emphasis' %>

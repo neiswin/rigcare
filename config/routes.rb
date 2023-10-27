@@ -29,4 +29,8 @@ Rails.application.routes.draw do
   root "pages#index"
   get 'pages/contact'
   get 'pages/test', to: 'pages#test'
+  # get 'phonebook/', to: 'phonebook_contacts#index'
+
+
+  resources :phonebook_contacts, only: %i[index create]
 end
