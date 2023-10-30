@@ -1,22 +1,74 @@
 
-<div class="my-1" id="<%= dom_id phonebook_contact%>" >
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-<%= dom_id phonebook_contact%>" aria-expanded="false" aria-controls="panelsStayOpen-<%= dom_id phonebook_contact%>">
-       <p class="lead">
-           <%= phonebook_contact.department %> \ <%= phonebook_contact.first_name %> <%= phonebook_contact.last_name %> 
-       </p> 
-      </button>
-    </h2>
-    <div id="panelsStayOpen-<%= dom_id phonebook_contact%>" class="accordion-collapse collapse">
-      <div class="accordion-body">
-        <p class="lead">
-            Stationarphone: <%= phonebook_contact.landline_phone_1 %>
-        </p>
-        <p class="lead">
-            Personal: <%= phonebook_contact.personal_mobile_phone_1 %>
-        </p>     
+<div class="card mb-2">
+  <div class="card-header">
+    <div class="row align-middle">
+      <div class="col fw-bold">
+         <i class="bi bi-file-person"></i> <%= phonebook_contact.first_name %> <%= phonebook_contact.last_name %> <%= phonebook_contact.surname %> 
       </div>
+      <div class="col text-primary"><%= phonebook_contact.position %> </div>
+      <div class="col text-success"><%= phonebook_contact.department %> </div>
+      <div class="col-1 btn-group text-end">
+        <% if current_user&.admin_role? %>
+          <%= link_to edit_phonebook_contact_path(phonebook_contact.id), data: { turbo: false }, method: :get, class: "btn " do %>
+            <i class="bi bi-pencil"></i>
+          <% end %>
+        <% end %>
+
+        <% if current_user&.admin_role? %>
+          <%= link_to phonebook_contact_path(phonebook_contact.id),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn text-danger" do %>
+            <i class="bi bi-trash"></i>
+          <% end %>               
+        <% end %>
+      </div>
+      
     </div>
   </div>
+  <ul class="list-group list-group-flush">
+    <% if phonebook_contact.landline_phone_1.present? || phonebook_contact.landline_phone_2.present? || phonebook_contact.city_phone.present? %>
+      <li class="list-group-item">
+        <div class="row">
+          <% if phonebook_contact.landline_phone_1.present? %>
+          <div class="col">
+              <i class="bi bi-telephone"></i> Внутренний: <%= phonebook_contact.landline_phone_1 %>
+          </div>
+          <% end %>
+
+          <% if phonebook_contact.landline_phone_2.present? %>
+          <div class="col">
+            <i class="bi bi-telephone"></i> Внутренний: <%= phonebook_contact.landline_phone_2 %>
+          </div>
+          <% end %>
+
+          <% if phonebook_contact.city_phone.present? %>
+          <div class="col">
+              <i class="bi bi-telephone"></i> Городской: <%= phonebook_contact.city_phone %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    <% if phonebook_contact.work_mobile_phone.present? || phonebook_contact.personal_mobile_phone_1.present? || phonebook_contact.personal_mobile_phone_2.present? %>
+      <li class="list-group-item">
+        <div class="row">
+          <% if phonebook_contact.work_mobile_phone.present? %>
+          <div class="col">
+            <i class="bi bi-phone"></i> Рабочий мобильный: <%= phonebook_contact.work_mobile_phone %>
+          </div>
+          <% end %>
+
+          <% if phonebook_contact.personal_mobile_phone_1.present? %>  
+          <div class="col">
+            <i class="bi bi-phone"></i> Личный мобильный: <%= phonebook_contact.personal_mobile_phone_1 %>
+          </div>
+          <% end %>
+
+          <% if phonebook_contact.personal_mobile_phone_2.present? %>
+          <div class="col">
+            <i class="bi bi-phone"></i> Личный мобильный: <%= phonebook_contact.personal_mobile_phone_2 %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

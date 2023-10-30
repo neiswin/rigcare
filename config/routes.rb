@@ -34,5 +34,5 @@ Rails.application.routes.draw do
   # get 'phonebook/', to: 'phonebook_contacts#index'
 
 
-  resources :phonebook_contacts, only: %i[index create]
+  resources :phonebook_contacts, only: %i[create destroy edit index new update]
 end

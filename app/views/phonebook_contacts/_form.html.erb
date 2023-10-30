@@ -1,0 +1,36 @@
+
+<div class="row">
+
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+      <%= form_with model: contact do |f| %>
+        <div class="mb-3">
+          <%= f.label :first_name, class: "form-label" %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",
+          placeholder: "Введите свое имя", class:"form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :last_name, class: "form-label" %>
+          <%= f.text_field :last_name, autocomplete: "last_name", 
+          placeholder: "Введите свою фамилию", class:"form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :surname, class: "form-label" %>
+          <%= f.text_field :surname, autocomplete: "surname",
+          placeholder: "Отчество", class:"form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.submit "Изменить", class: "btn btn-primary", data: { turbo:false }%>
+        </div>
+      <% end %>
+  </div>
+  
+  <div class="col-3 col-sm-2">
+  </div>
+
+</div>
