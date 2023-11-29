@@ -1,6 +1,9 @@
 
 <div class="container mt-5 ">
-  <div class="row">
+  <div class="row"> 
+      <div class="col-lg-2">
+      </div>
+
       <div class="col-lg-8 bg-white ">
           <!-- Post content-->
           <article >
@@ -9,9 +12,15 @@
                   <!-- Post title-->
                   <h1 class="fw-bolder mb-1"><%= @faq.title %></h1>
                   <!-- Post meta content-->
-                  <div class="text-muted fst-italic mb-1">Добавлено: <%= @faq.created_at %>, Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %></div>
+                  <div class="text-muted fst-italic mb-1">  Добавлено: <%= @faq.created_at %>,
+                                                            Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %>, 
+                                                            Темы:    <% @faq.tags.pluck(:title).each do |tag|%>
+                                                                      <span class="badge rounded-pill text-bg-primary">
+                                                                        <%= tag %>
+                                                                      </span>
+                                                                    <% end %></div>
                   <div>
-                    <h4><span class="badge bg-info"><%= @faq.rig.rig_type %></span></h4>
+                    <h4><span class="badge bg-success"><%= @faq.rig.rig_type %></span></h4>
                   </div>
                   <!-- Post categories-->         
               </header>
@@ -38,35 +47,10 @@
               </section>
           </article>
       </div>
-      <!-- Side widgets-->
-      <div class="col-lg-4">
-          <!-- Search widget-->
-          <div class="card shadow border border-1 rounded-2 mb-4">
-              <div class="card-header border border-0">Поиск</div>
-              <div class="card-body">
-                <%= render "faqs/partial/search_form" %>
-              </div>
-          </div>
-          <!-- Categories widget-->
-          <div class="card shadow rounded-2 border border-1 mb-4">
-              <div class="card-header border border-light">Категории</div>
-              <div class="card-body">
-                  <div class="row">
-                      <div class="col-sm-12">
-                          <ul class="list-unstyled mb-0">
-                                <% @faq.tags.each do |item| %>
-                                    <li class="badge rounded-pill text-bg-primary">
-                                        <%= item.title %>
-                                    </li>
-                                <% end %> 
-                          </ul>
-                      </div>
 
-                  </div>
-              </div>
-          </div>
-
-
+      <div class="col-lg-2">
       </div>
+
+
   </div>
 </div>

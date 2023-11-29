@@ -1,5 +1,18 @@
+
 <ul class="list-group list-group-flush">
   <% faqs.each do |faq| %>
-    <%= link_to faq.title, faq, class: "list-group-item list-group-item-action text-primary"%>
+    <li class="list-group-item list-group-item-action text-primary">
+      <div class="row">
+        <div class="col-md-4 "> <%= link_to faq.title, faq %></div>
+        <div class="col-md-4 offset-md-4">        
+          <% faq.tags.pluck(:title).each do |tag|%>
+            <span class="badge rounded-pill text-bg-primary">
+              <%= tag %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+
+    </li>
   <% end %>
 </ul>

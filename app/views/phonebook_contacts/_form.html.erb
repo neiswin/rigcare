@@ -7,25 +7,89 @@
     <div class="col-12 col-sm-8">
       <%= form_with model: contact do |f| %>
         <div class="mb-3">
-          <%= f.label :first_name, class: "form-label" %>
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",
-          placeholder: "Введите свое имя", class:"form-control" %>
+          <div class="form-floating ">
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",
+            placeholder: "Введите фамилию", class:"form-control" %>
+            <%= f.label :title, 'Фамилия'  %>
+          </div>
         </div>
 
         <div class="mb-3">
-          <%= f.label :last_name, class: "form-label" %>
-          <%= f.text_field :last_name, autocomplete: "last_name", 
-          placeholder: "Введите свою фамилию", class:"form-control" %>
+          <div class="form-floating ">
+            <%= f.text_field :last_name, autocomplete: "last_name", 
+            placeholder: "Введите имя", class:"form-control" %>
+            <%= f.label :title, 'Введите имя'  %>
+          </div>
         </div>
 
         <div class="mb-3">
-          <%= f.label :surname, class: "form-label" %>
-          <%= f.text_field :surname, autocomplete: "surname",
-          placeholder: "Отчество", class:"form-control" %>
+          <div class="form-floating ">
+            <%= f.text_field :surname, autocomplete: "surname",
+            placeholder: "Отчество", class:"form-control" %>
+            <%= f.label :title, 'Введите отчество'  %>
+          </div>
+        </div>
+
+        <br>
+
+
+        <br>
+
+
+
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.text_field :landline_phone_1, autocomplete: "landline_phone_1",
+            placeholder: "Введите телефон №1", class:"form-control" %>
+            <%= f.label :title, 'Введите телефон №1'  %>
+          </div>
         </div>
 
         <div class="mb-3">
-          <%= f.submit "Изменить", class: "btn btn-primary", data: { turbo:false }%>
+          <div class="form-floating ">
+            <%= f.text_field :landline_phone_2, autocomplete: "landline_phone_2",
+            placeholder: "Введите телефон №2", class:"form-control" %>
+            <%= f.label :title, 'Введите телефон №2'  %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.text_field :city_phone, autocomplete: "city_phone",
+            placeholder: "Введите городской номер телефона", class:"form-control" %>
+            <%= f.label :title, 'Введите городской номер телефона'  %>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.text_field :work_mobile_phone, autocomplete: "work_mobile_phone",
+            placeholder: "Введите рабочий мобильный", class:"form-control" %>
+            <%= f.label :title, 'Введите рабочий мобильный'  %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.text_field :personal_mobile_phone_1, autocomplete: "personal_mobile_phone_1",
+            placeholder: "Введите личный мобильный №1", class:"form-control" %>
+            <%= f.label :title, 'Введите личный мобильный №1'  %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="form-floating ">
+            <%= f.text_field :personal_mobile_phone_2, autocomplete: "personal_mobile_phone_2",
+            placeholder: "Введите личный мобильный №2", class:"form-control" %>
+            <%= f.label :title, 'Введите личный мобильный №2'  %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= f.submit "Сохранить", class: "btn btn-primary", data: { turbo:false }%>
         </div>
       <% end %>
   </div>

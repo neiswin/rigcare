@@ -3,48 +3,41 @@
 
 <%= form_with model: @faq do |f| %>
     
-    <div class="mb-2">     
-      <div class="form-floating ">
-        <%= f.text_field :title, placeholder: "Заголовок", class:'form-control'  %>
-        <%= f.label :title, 'Заголовок руководства' %>
-      </div>
+  <div class="mb-2">     
+    <div class="form-floating ">
+      <%= f.text_field :title, placeholder: "Заголовок", class:'form-control'  %>
+      <%= f.label :title, 'Заголовок руководства' %>
     </div>
-
-    <div class="mb-2">
-      <div class="form-floating ">
-        <%= f.select :rig_id, rigs, { label: "Выбери тип буровой установки",
-          wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
-        <%= f.label :rig_id, 'Буровая' %>
-      </div>  
-      <p class="form-text text-muted">
-        Выбери тип буровой установки для созданий руководства
-      </p>        
-    </div>
-
-
-<div class="mb-2">
-  <div>
-    <%# <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true } %> 
-    <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true, id: "tag_ids", data: { controller: 'slim' } } %>
-
-
   </div>
-  <p class="form-text text-muted">
-    Выберите темы руководства
-  </p>
-</div>
 
+  <div class="mb-2">
+    <div class="form-floating ">
+      <%= f.select :rig_id, rigs, { label: "Выбери тип буровой установки",
+        wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+      <%= f.label :rig_id, 'Буровая' %>
+    </div>  
+    <p class="form-text text-muted">
+      Выбери тип буровой установки для созданий руководства
+    </p>        
+  </div>
 
-
-
-
-    <div class="mb-5 text-start sticky-top">
-        <%= f.rich_text_area :body, placeholder: "Описание проблемы", class: "form-control" %>
+  <div class="mb-2">
+    <div>
+      <%# <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true } %> 
+      <%= f.collection_select :tag_ids, tags, :id, :title, {}, { multiple: true, id: "tag_ids", data: { controller: 'slim' } } %>
     </div>
+    <p class="form-text text-muted">
+      Выберите темы руководство (не более 3)
+    </p>
+  </div>
 
-    <div class="mb-2 ">
-      <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
-    </div>
+  <div class="mb-5 text-start sticky-top">
+      <%= f.rich_text_area :body, placeholder: "Составляйте руководство здесь", class: "form-control" %>
+  </div>
+
+  <div class="mb-2 ">
+    <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
+  </div>
 
 <% end %>
   

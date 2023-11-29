@@ -7,20 +7,25 @@
       </div>
       <div class="col text-primary"><%= phonebook_contact.position %> </div>
       <div class="col text-success"><%= phonebook_contact.department %> </div>
-      <div class="col-1 btn-group text-end">
-        <% if current_user&.admin_role? %>
-          <%= link_to edit_phonebook_contact_path(phonebook_contact.id), data: { turbo: false }, method: :get, class: "btn " do %>
-            <i class="bi bi-pencil"></i>
-          <% end %>
-        <% end %>
+      <div class="col">
+        <div class="col">
+        </div>         
+        <div class="col text-end">
+          <div class="btn-group btn-group">
+            <% if current_user&.admin_role? %>
+              <%= link_to edit_phonebook_contact_path(phonebook_contact.id), data: { turbo: false }, method: :get, class: "btn btn-outline-warning " do %>
+                <i class="bi bi-pencil"></i>
+              <% end %>
+            <% end %>
 
-        <% if current_user&.admin_role? %>
-          <%= link_to phonebook_contact_path(phonebook_contact.id),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn text-danger" do %>
-            <i class="bi bi-trash"></i>
-          <% end %>               
-        <% end %>
+            <% if current_user&.admin_role? %>
+              <%= link_to phonebook_contact_path(phonebook_contact.id),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-outline-danger" do %>
+                <i class="bi bi-trash"></i>
+              <% end %>               
+            <% end %>
+          </div>
+        </div>
       </div>
-      
     </div>
   </div>
   <ul class="list-group list-group-flush">
@@ -72,3 +77,4 @@
     <% end %>
   </ul>
 </div>
+
