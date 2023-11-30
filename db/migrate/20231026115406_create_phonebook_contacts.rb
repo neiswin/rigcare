@@ -1,7 +1,5 @@
 class CreatePhonebookContacts < ActiveRecord::Migration[7.0]
-  def change
-    enable_extension 'citext' unless extension_enabled?('citext')
-    
+  def change   
     create_table :phonebook_contacts do |t|
       t.string :department
       t.string :position

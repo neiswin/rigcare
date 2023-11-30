@@ -9,8 +9,8 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: rigcare
-  password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+  username: deploy
+  password: Far21zXc31r
 
 development:
   <<: *default
@@ -22,6 +22,5 @@ test:
 
 production:
   <<: *default
-  database: rigcare_production
+  database: myapp
 
-  database: rigcare_production
