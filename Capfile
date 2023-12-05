@@ -6,6 +6,8 @@ require "capistrano/deploy"
 require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
+require "capistrano/secrets_yml"
+
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.2.2'
@@ -36,8 +38,8 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
 # require "capistrano/bundler"
-require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
+# require "capistrano/rails/assets"
+# require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
