@@ -325,6 +325,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
+  base64 (~> 0.2.0)
   bootsnap
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
