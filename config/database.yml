@@ -22,6 +22,7 @@ test:
 
 production:
   <<: *default
-  database: rigcare_production
+  database: myapp
+  username: deploy
+  password: Far21zXc31r
 
-  database: rigcare_production
