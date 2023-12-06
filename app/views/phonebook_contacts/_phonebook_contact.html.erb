@@ -3,7 +3,7 @@
   <div class="card-header">
     <div class="row align-middle">
       <div class="col fw-bold">
-         <i class="bi bi-file-person"></i> <%= phonebook_contact.first_name %> <%= phonebook_contact.last_name %> <%= phonebook_contact.surname %> 
+         <i class="bi bi-file-person"></i> <%=highlight(phonebook_contact.first_name, params[:query])  %> <%= highlight(phonebook_contact.last_name, params[:query]) %> <%= phonebook_contact.surname %> 
       </div>
       <div class="col text-primary"><%= phonebook_contact.position %> </div>
       <div class="col text-success"><%= phonebook_contact.department %> </div>

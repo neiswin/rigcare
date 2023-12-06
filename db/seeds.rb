@@ -7,7 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-# Rig.create rig_type: "АРС-250"
+# Rig.create rig_type: "АРС-225"
+# Rig.create rig_type: "Уралмаш 3Д-76/86"
+# Rig.create rig_type: "ДЭЛ-150"
 # Rig.create rig_type: "Drillmec наземный"
 # Rig.create rig_type: "Drillmec эшелон"
 # Rig.create rig_type: "Общие"
