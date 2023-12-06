@@ -1,7 +1,10 @@
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-@import 'actiontext.css';
+@import './actiontext.css';
 @import 'slim-select/src/slim-select/slimselect.scss';
+@import "trix/dist/trix";
+
 
 
 .field_with_errors {
