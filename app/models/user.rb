@@ -19,8 +19,7 @@ class User < ApplicationRecord
   
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize_to_fill: [150, nil, {crop: :attention}]).processed
-      
+      avatar.variant(resize_to_fill: [250, nil,  { crop: :attention}]).processed
     else
       "default_profile.png"
     end
@@ -32,7 +31,7 @@ class User < ApplicationRecord
     return unless avatar.attached?
 
     unless avatar.image? && %w[image/jpeg image/png].include?(avatar.content_type)
-      errors.add(:avatar, 'должен быть файлом формата JPEG или PNG')
+      errors.add(:avatar, 'должен быть файлом формата JPG или PNG')
     end
   end
   
