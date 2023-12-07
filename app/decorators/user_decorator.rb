@@ -19,7 +19,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def department_text
-    case position
+    case deparment
     when 1
       return "СКУ"
     when 2
