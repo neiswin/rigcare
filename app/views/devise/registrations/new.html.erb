@@ -18,6 +18,16 @@
 
         <div class="mb-3 ">
           <div class="form-floating">
+            <% if resource.avatar.attached?  %>
+              <%= image_tag(resource.avatar) %>
+            <% else %>
+              <%= image_tag("default_profile.png") %>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="mb-3 ">
+          <div class="form-floating">
             <%= f.text_field :first_name, placeholder: "Имя", autofocus: true, autocomplete: "first_name", class:'form-control shadow-sm'  %>
             <%= f.label :first_name, 'Ваше имя', placeholder: "Имя" %>
           </div>

@@ -13,4 +13,28 @@ class User < ApplicationRecord
   validates :department, presence: true
   validates :position, presence: true
   devise :database_authenticatable, :authentication_keys => [:email]
+  has_one_attached :avatar
+  validate :validate_avatar_format
+
+  
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize_to_fill: [150, nil, {crop: :attention}]).processed
+      
+    else
+      "default_profile.png"
+    end
+  end
+  
+  private
+
+  def validate_avatar_format
+    return unless avatar.attached?
+
+    unless avatar.image? && %w[image/jpeg image/png].include?(avatar.content_type)
+      errors.add(:avatar, 'должен быть файлом формата JPEG или PNG')
+    end
+  end
+  
+  
 end

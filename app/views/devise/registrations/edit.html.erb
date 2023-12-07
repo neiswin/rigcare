@@ -18,6 +18,19 @@
 
 
          <div class="mb-3 ">
+          <div class="form">
+            <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="field">
+            <%= f.label :avatar, 'Выберите файл для загрузки аватара', class: "form-label" %>
+            <%= f.file_field :avatar, accept: 'image/jpeg, image/png', class: "form-control" %>
+          </div>
+        </div>
+
+         <div class="mb-3 ">
           <div class="form-floating">
             <%= f.text_field :first_name, placeholder: "Имя", autofocus: true, autocomplete: "first_name", class:'form-control shadow-sm'  %>
             <%= f.label :first_name, 'Ваше имя', placeholder: "Имя" %>
