@@ -39,5 +39,14 @@
     <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
   </div>
 
+  
+  <div class="mb-2 ">
+<% tags.each do |item| %>
+  <%= item.title %>
+<% end %>
+  </div>
+
+
+
 <% end %>
   

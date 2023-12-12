@@ -14,13 +14,19 @@
                   <!-- Post meta content-->
                   <div class="text-muted fst-italic mb-1">  Добавлено: <%= @faq.created_at %>,
                                                             Автор: <%= link_to "#{@faq.user.first_name} #{@faq.user.last_name}", user_path(@faq.user.id)  %>, 
-                                                            Темы:    <% @faq.tags.pluck(:title).each do |tag|%>
-                                                                      <span class="badge rounded-pill text-bg-primary">
-                                                                        <%= tag %>
+                                                            Темы:    <% @faq.tags.pluck(:title, :tag_type).each do |tag|%>
+                                                                                  <% color = case tag[1]
+                                                                                    when "tag_place" then "success"
+                                                                                    when "tag_device" then "dark"
+                                                                                    when "tag_doc" then "primary"
+                                                                                    else "secondary" 
+                                                                                    end %>
+                                                                      <span class="badge rounded-pill text-bg-<%= color %>">
+                                                                        <%= tag[0] %>
                                                                       </span>
                                                                     <% end %></div>
                   <div>
-                    <h4><span class="badge bg-success"><%= @faq.rig.rig_type %></span></h4>
+                    <h4><span class="badge bg-warning"><%= @faq.rig.rig_type %></span></h4>
                   </div>
                   <!-- Post categories-->         
               </header>

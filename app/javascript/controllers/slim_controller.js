@@ -9,6 +9,7 @@ export default class extends Controller {
 
     new SlimSelect({
       select: this.element,
+      label: 'Label 1',
       settings: {
         maxSelected: 3,
         placeholderText: 'Выберите теги',
