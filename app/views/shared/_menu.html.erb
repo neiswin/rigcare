@@ -1,37 +1,40 @@
+<header class="py-2 mb-2">
+  <div class="container d-flex flex-wrap justify-content-center">
+      <%= link_to image_tag("ps-logo.png", size: "255x55", alt: "Edit Entry"), root_path  %>
+  </div>  
+</header>
+
 <nav class="navbar navbar-expand-lg mb-3">
   <div class="container-fluid">
-    <%= image_tag("ps-logo.png", size: "255x55", alt: "Edit Entry") %>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-3 me-auto mb-2 mb-lg-0">
-    <%# <% if current_user %> 
-      
-        <li class="nav-item">
-           <%= link_to 'Домашняя страница', root_path, class: 'nav-link px-2 link-body-emphasis' %>
-        </li>
         <li class="nav-item">
            <%= link_to 'Руководства', faqs_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
 
-
         <li class="nav-item">
-           <%= link_to 'О проекте', pages_contact_path, class: 'nav-link px-2 link-body-emphasis' %>
+           <%= link_to 'Оборудование', equipments_index_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
 
         <li class="nav-item">
            <%= link_to 'Тел.Справочник', phonebook_contacts_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
 
+        <li class="nav-item">
+           <%= link_to 'О проекте', pages_contact_path, class: 'nav-link px-2 link-body-emphasis' %>
+        </li>
+
+
         <% if current_user&.admin_role? %>
         <li class="nav-item">
            <%= link_to 'Все пользователи', admin_users_path, class: 'nav-link px-2 link-body-emphasis' %>
         </li>
         <% end %>
-
-
       </ul>
 
        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
@@ -42,7 +45,7 @@
           data: {"bs-toggle": 'dropdown'} do %>
           <%= current_user.first_name %>
           <% end %>
-            <ul class="dropdown-menu ">
+            <ul class="dropdown-menu text-small">
 
               <li><%= link_to user_path(current_user.id), method: :get, class: 'dropdown-item' do %>
                 <i class="bi bi-person-circle"></i> Профиль

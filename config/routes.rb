@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'equipments/index'
+  get 'equipments/show'
+  get 'equipments/new'
+  get 'equipments/edit'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
@@ -32,6 +36,8 @@ Rails.application.routes.draw do
 
   resources :tests
   # get 'phonebook/', to: 'phonebook_contacts#index'
+
+  resources :equipments
 
 
   resources :phonebook_contacts, only: %i[create destroy edit index new update]

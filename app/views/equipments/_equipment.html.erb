@@ -1,0 +1,23 @@
+<tr>
+  <th scope="row"><%= equipment.title %></th>
+  <td class="text-center" ><%= equipment.manufacturer %></td>
+  <td class="text-center " ><%= equipment.part_number %></td>
+  <td><%= equipment.description %></td>
+  <td class="text-center" ><%= equipment.amount %></td>
+  <td class="text-end" >
+          <div class="btn-group btn-group">
+            <% if current_user&.admin_role? %>
+              <%= link_to edit_equipment_path(equipment.id), data: { turbo: false }, method: :get, class: "btn btn-outline-warning " do %>
+                <i class="bi bi-pencil"></i>
+              <% end %>
+            <% end %>
+
+            <% if current_user&.admin_role? %>
+              <%= link_to equipment_path(equipment.id),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-outline-danger" do %>
+                <i class="bi bi-trash"></i>
+              <% end %>               
+            <% end %>
+          </div>
+  
+  </td>
+</tr>

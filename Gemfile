@@ -97,3 +97,4 @@ gem "capistrano-secrets-yml"
 gem 'base64', '~> 0.1.1'
 gem 'ruby-vips', '~> 2.0', '>= 2.0.7'
 gem 'mini_magick', '~> 4.11'
+gem 'simple_form', '~> 5.3'
