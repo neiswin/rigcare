@@ -40,5 +40,5 @@ Rails.application.routes.draw do
   resources :equipments
 
 
-  resources :phonebook_contacts, only: %i[create destroy edit index new update]
+  # resources :phonebook_contacts, only: %i[create destroy edit index new update]
 end
