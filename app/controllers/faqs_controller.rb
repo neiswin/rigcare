@@ -2,6 +2,7 @@ class FaqsController < ApplicationController
   before_action :set_faq!, only: %i[destroy edit show update]
   before_action :fetch_rigs, only: %i[create edit new]
   before_action :fetch_tags, only: %i[create edit new]
+  skip_before_action :verify_authenticity_token
 
   def index
     @faqs = Faq.all

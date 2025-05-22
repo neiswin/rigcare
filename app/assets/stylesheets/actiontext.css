@@ -26,6 +26,6 @@
 }
 
 .trix-content action-text-attachment .attachment {
-  padding: 1 !important;
+  padding: 0 !important;
   max-width: 100% !important;
 }

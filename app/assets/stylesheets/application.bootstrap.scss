@@ -1,6 +1,6 @@
+@import 'actiontext.css';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-@import 'actiontext.css';
 @import 'slim-select/src/slim-select/slimselect.scss';
 
 
@@ -36,7 +36,3 @@ trix-toolbar {
   z-index: 1;
   background-color: var(--bs-body-bg);
 }
-
-
-
-
