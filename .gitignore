@@ -32,10 +32,14 @@
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
 /node_modules
+<<<<<<< HEAD
 config/master.key
+=======
+
+/config/master.key
+>>>>>>> 44fa57812e1e996cb96b16957cfe366517146507

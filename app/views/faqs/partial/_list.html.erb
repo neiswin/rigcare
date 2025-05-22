@@ -5,14 +5,19 @@
       <div class="row">
         <div class="col-md-4 "> <%= link_to faq.title, faq %></div>
         <div class="col-md-4 offset-md-4">        
-          <% faq.tags.pluck(:title).each do |tag|%>
-            <span class="badge rounded-pill text-bg-primary">
-              <%= tag %>
+          <% faq.tags.pluck(:title, :tag_type).each do |tag|%>
+            <% color = case tag[1]
+                        when "tag_place" then "success"
+                        when "tag_device" then "dark"
+                        when "tag_doc" then "primary"
+                        else "secondary" 
+                        end %>
+            <span class="badge rounded-pill text-bg-<%= color %>">
+              <%= tag[0] %>
             </span>
           <% end %>
         </div>
       </div>
-
     </li>
   <% end %>
 </ul>

@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 @import 'actiontext.css';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+=======
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import './actiontext.css';
+>>>>>>> 44fa57812e1e996cb96b16957cfe366517146507
 @import 'slim-select/src/slim-select/slimselect.scss';
+@import "trix/dist/trix";
 
 
 .field_with_errors {
@@ -36,3 +44,13 @@ trix-toolbar {
   z-index: 1;
   background-color: var(--bs-body-bg);
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+>>>>>>> 44fa57812e1e996cb96b16957cfe366517146507

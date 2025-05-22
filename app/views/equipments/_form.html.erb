@@ -1,0 +1,56 @@
+<%= form_with(model: @equipment, url: @equipment.new_record? ? equipments_path : equipment_path(@equipment), method: @equipment.new_record? ? :post : :patch) do |f| %>
+
+
+  <div class="mb-2">
+    <div class="form-floating ">
+      <%= f.text_field :title, placeholder: 'Наименование', class:'form-control'  %>
+      <%= f.label :title, 'Наименование' %>
+    </div>  
+    <p class="form-text text-muted text-start">
+      Введите тип оборудования. Например: "Станция удаленной периферии ET200S"
+    </p>        
+  </div>
+
+  <div class="mb-2">
+    <div class="form-floating ">
+      <%= f.text_field :manufacturer, placeholder: 'Производитель', class:'form-control'  %>
+      <%= f.label :manufacturer, 'Производитель' %>
+    </div>  
+    <p class="form-text text-muted text-start">
+      Введите производителя. Например: "Siemens"
+    </p>        
+  </div>
+
+  <div class="mb-2">
+    <div class="form-floating ">
+      <%= f.text_field :part_number, placeholder: 'Артикул', class:'form-control'  %>
+      <%= f.label :part_number, 'Артикул' %>
+    </div>  
+    <p class="form-text text-muted text-start">
+      Артикул (заказной номер). Например: "6ES7 151-1BA02-0AB0"
+    </p>        
+  </div>
+
+  <div class="mb-2">
+    <div class="form-floating ">
+      <%= f.text_area :description, placeholder: 'Описание', class:'form-control'  %>
+      <%= f.label :description, 'Описание' %>
+    </div>  
+    <p class="form-text text-muted text-start">
+      Здесь могут быть краткие характеристики или другая дополнительная информация.
+  </div>
+
+  <div class="mb-2">
+    <div class="">
+      <%= f.label :amount, 'Количество ЗИП' %>
+      <%= f.number_field :amount, class: "form-control", required: true, min: 0 %>  
+    </div>  
+    <p class="form-text text-muted text-start">
+      Укажите количество 
+  </div>
+
+
+  <div class="mb-2 ">
+    <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo: false } %>
+  </div>
+<% end %>
