@@ -17,10 +17,9 @@ production:
   <<: *default
   database: myapp
   username: deploy
-<<<<<<< HEAD
   password: Far21zXc31r
-=======
+
   
 
 
->>>>>>> 44fa57812e1e996cb96b16957cfe366517146507
+

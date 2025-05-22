@@ -37,9 +37,9 @@
 !/app/assets/builds/.keep
 
 /node_modules
-<<<<<<< HEAD
+
 config/master.key
-=======
+
 
 /config/master.key
->>>>>>> 44fa57812e1e996cb96b16957cfe366517146507
+

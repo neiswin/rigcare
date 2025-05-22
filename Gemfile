@@ -89,16 +89,16 @@ gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'rubyXL'
 gem 'activerecord-import'
-<<<<<<< HEAD
+
 gem 'rack-cors'
-=======
+
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem "capistrano-secrets-yml"
-gem 'base64', '~> 0.1.1'
+# gem 'base64', '~> 0.1.1'
 gem 'ruby-vips', '~> 2.0', '>= 2.0.7'
 gem 'mini_magick', '~> 4.11'
 gem 'simple_form', '~> 5.3'
->>>>>>> 44fa57812e1e996cb96b16957cfe366517146507
+
