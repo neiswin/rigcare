@@ -1,0 +1,83 @@
+<%# app/views/pages/home.html.erb %>
+
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 fw-normal text-body-emphasis">Система мониторинга бурового оборудования</h1>
+  <p class="fs-5 text-body-secondary">Мониторинг в реальном времени ключевых параметров буровой установки</p>
+</div>
+
+<div class="mb-4 text-center">
+  <%= image_tag "https://via.placeholder.com/1200x400?text=%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%D0%B0", class: "img-fluid w-100", alt: "Баннер" %>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-6">
+    <table class="table table-bordered table-primary">
+      <tbody>
+        <tr>
+          <th>Скважина</th>
+          <td>№<%= rand(100..999) %></td>
+        </tr>
+        <tr>
+          <th>Буровая бригада</th>
+          <td>Бригада №<%= rand(1..10) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-bordered table-success">
+      <tbody>
+        <tr>
+          <th>Вес на крюке</th>
+          <td><%= rand(100000..200000) %> кг</td>
+        </tr>
+        <tr>
+          <th>Положение талевого блока</th>
+          <td><%= rand(10..50) %> м</td>
+        </tr>
+        <tr>
+          <th>Давление манифольда</th>
+          <td><%= rand(50..150) %> бар</td>
+        </tr>
+        <tr>
+          <th>ЧДХ БН1</th>
+          <td><%= rand(20..100) %> об/мин</td>
+        </tr>
+        <tr>
+          <th>ЧДХ БН2</th>
+          <td><%= rand(20..100) %> об/мин</td>
+        </tr>
+        <tr>
+          <th>ЧДХ БН3</th>
+          <td><%= rand(20..100) %> об/мин</td>
+        </tr>
+        <tr>
+          <th>Потребляемая мощность буровой от ЛЭП</th>
+          <td><%= rand(500..1000) %> кВт</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="mb-4">
+  <h2>Аварийные сообщения</h2>
+  <table class="table table-striped table-danger">
+    <thead>
+      <tr>
+        <th>Текст</th>
+        <th>Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Пожар в моторном отсеке</td>
+        <td><%= (Time.current - 1.day).strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+      <tr>
+        <td>Перегрузка насоса</td>
+        <td><%= Time.current.strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

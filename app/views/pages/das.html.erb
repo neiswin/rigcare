@@ -1,0 +1,68 @@
+<%# app/views/pages/das.html.erb %>
+
+<div class="container py-5">
+  <!-- Заголовок -->
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold">Система контроля параметров бурения</h1>
+    <p class="text-muted lead">Отслеживание ключевых параметров в реальном времени</p>
+  </div>
+
+  <!-- Группировка параметров -->
+  <div class="row g-4 mb-5">
+    <% groups = {
+      'Геометрия'   => { 'Положение долота' => "#{rand(0..100)} м",      'Глубина скважины'   => "#{rand(1000..3000)} м" },
+      'Нагрузка'     => { 'Вес на крюке'     => "#{rand(100000..200000)} кг", 'Нагрузка на долото' => "#{rand(10000..50000)} Н" },
+      'Вращение'     => { 'Скорость ВП'      => "#{rand(10..50)} об/мин",  'Момент ВП'         => "#{rand(500..2000)} Н·м" },
+      'Гидравлика'   => { 'Давление манифольда' => "#{rand(50..150)} бар", 'Литраж на выходе'   => "#{rand(20..200)} л/мин", 'Активный объём'     => "#{rand(100..500)} л" }
+    } %>
+
+    <% groups.each do |title, metrics| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary mb-4"><%= title %></h5>
+            <% metrics.each do |label, value| %>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted"><%= label %></span>
+                <span class="fw-semibold"><%= value %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Емкостной парк -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-4">Емкостной парк</h2>
+    <% capacity_groups = {
+      'Приемные емкости'    => [1, 2],
+      'Рабочие емкости'     => [3, 4, 5, 6],
+      'Тонкая очистка'      => [7, 8, 9],
+      'Грубая очистка'      => [11, 12],
+      'Доливная'            => [10]
+    } %>
+
+    <% capacity_groups.each do |group_name, numbers| %>
+      <div class="mb-3">
+        <h5 class="text-secondary fw-semibold"><%= group_name %></h5>
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+          <% numbers.each do |num| %>
+            <div class="col">
+              <div class="card text-center h-100 border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                  <h6 class="card-title fw-semibold">Емкость №<%= num %></h6>
+                  <% if group_name == 'Доливная' %>
+                    <span class="badge bg-warning-subtle text-warning mb-2">Доливная</span>
+                  <% end %>
+                  <p class="mb-0 text-muted">Объем: <span class="fw-semibold"><%= rand(500..2000) %> м3</span></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

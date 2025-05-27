@@ -1,0 +1,178 @@
+<%# app/views/pages/mudpumps.html.erb %>
+
+<div class="container py-5">
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-bold text-primary">Буровые насосы</h1>
+    <p class="fs-5 text-muted">Работа буровых насосов на буровой установке АРС250 №2</p>
+    <div class="d-flex justify-content-center gap-3 mb-4">
+
+    </div>
+  </div>
+
+  <%# Карточки насосов %>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <% 3.times do |i| %>
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0 overflow-hidden">
+          <div class="card-header bg-primary text-white py-3">
+            <h5 class="card-title mb-0 d-flex justify-content-between align-items-center">
+              <span>Буровой насос <%= i+1 %></span>
+
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-center mb-3">
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Модель:</span>
+                <span class="text-end">Модель<%= rand(100..999) %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Инв. номер:</span>
+                <span><%= rand(1000..9999) %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Наработка:</span>
+                <span>
+                  <%= rand(1000..5000) %> ч
+                  <div class="progress mt-1" style="height: 5px;">
+                    <div class="progress-bar bg-<%= rand(1..5000) > 4000 ? 'danger' : 'warning' %>" 
+                         role="progressbar" 
+                         style="width: <%= rand(50..100) %>%;">
+                    </div>
+                  </div>
+                </span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Число ходов:</span>
+                <span><%= rand(10000..50000) %></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Литраж:</span>
+                <span><%= rand(10..100) %> л</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Давление:</span>
+                <span><%= rand(50..150) %> бар</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Втулки:</span>
+                <span class="badge bg-info">Тип<%= rand(1..5) %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#pumpModal<%= i+1 %>">
+              <i class="fas fa-chart-line me-2"></i>Детальная статистика
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# Аварийные сообщения %>
+  <div class="card shadow mb-5">
+    <div class="card-header bg-danger text-white py-3">
+      <h2 class="h5 mb-0 d-flex align-items-center">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Аварийные сообщения
+      </h2>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th class="ps-4">Текст сообщения</th>
+              <th>Время</th>
+              <th>Статус</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% 3.times do |i| %>
+              <tr class="<%= i == 0 ? 'table-danger' : '' %>">
+                <td class="ps-4">
+                  <i class="fas fa-<%= i == 0 ? 'exclamation-circle text-danger' : 'check-circle text-success' %> me-2"></i>
+                  Аварийное сообщение №<%= rand(1..100) %>
+                </td>
+                <td><%= (Time.current - rand(1..24).hours).strftime("%Y-%m-%d %H:%M") %></td>
+                <td>
+                  <span class="badge bg-<%= i == 0 ? 'danger' : 'success' %>">
+                    <%= i == 0 ? 'Новое' : 'Завершено' %>
+                  </span>
+                </td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer bg-light">
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted">Последнее обновление: <%= Time.current.strftime("%Y-%m-%d %H:%M") %></small>
+        <button class="btn btn-sm btn-primary">
+          <i class="fas fa-sync me-1"></i> Обновить
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Модальные окна для каждой карточки (пример для одного насоса) %>
+<% 3.times do |i| %>
+  <div class="modal fade" id="pumpModal<%= i+1 %>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Детальная статистика насоса <%= i+1 %></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Технические параметры</h6>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span>Макс. давление</span>
+                  <span class="fw-bold"><%= rand(150..200) %> бар</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span>Рекоменд. замена втулок</span>
+                  <span class="fw-bold"><%= rand(3000..6000) %> ч</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">График нагрузки</h6>
+              <div class="bg-light p-3 rounded text-center">
+                <p class="text-muted">[Здесь будет график]</p>
+                <canvas id="pumpChart<%= i+1 %>" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Сохранить отчет</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<style>
+  .pump-icon {
+    transition: transform 0.3s;
+  }
+  .pump-icon:hover {
+    transform: scale(1.1);
+  }
+  .bg-light-primary {
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+</style>
